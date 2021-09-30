@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.BlockingQueue;
 
     public class Producer extends Thread {
@@ -16,7 +18,8 @@ import java.util.concurrent.BlockingQueue;
     @Override
     public void run() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("voyna.txt"));
+            File file = new File("voyna.txt");
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             while (true) {
                 String str = bufferedReader.readLine();
                 if (str != null) {
